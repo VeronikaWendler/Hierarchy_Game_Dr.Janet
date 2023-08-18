@@ -1,0 +1,3166 @@
+﻿
+# Dominance & Trustworthieness Experiment 
+************************************************************************************************************************
+************************************************************************************************************************
+raw data file
+************************************************************************************************************************
+************************************************************************************************************************
+<data>
+/ columns = (build, computer.platform, date, time, subject, group,
+script.sessionid, blockcode, blocknum, trialcode, trialnum, response, 
+latency,parameters.version,values.subtest, parameters.age, parameters.gender,
+parameters.handedness, parameters.diagnosis, parameters.taskOrder,
+
+values.subtest8_instructions,values.subtesT8_testitem, values.testitem, 
+values.selectedResponse, values.correctResponse, correct, values.RT,                                                            
+values.stimulusitem, values.trialLEFT, values.trialRIGHT, values.trialLEFT2,
+values.randomfix, values.trialRIGHT2, values.choiceRJ, values.choice, values.choice2,values.POS,
+values.POS2, values.NEG, values.NEG2, values.Side, values.Side2, values.next_trial
+
+values.emotion, values.encoder, values.intensity,
+values.stimulusitem, values.emotion_accuracy, values.daily_occurence,
+slider.Attractive.response, slider.Aggressive.response, 
+slider.Caring.response,slider.Confident.response, slider.Dominant.response,
+slider.EmotionallyStable.response, slider.Intelligent.response, slider.Mean.response,  
+slider.Responsible.response, slider.Sociable.response, slider.Trustworthy.response,
+slider.Unhappy.response, slider.Competency.response, slider.Warmth, slider.Weird,
+values.facepic)
+</data>
+
+************************************************************************************************************************
+summary data file   values.subtest8_2testitem, values.testitem2
+************************************************************************************************************************
+<summarydata>
+/ columns = (inquisit.version, computer.platform,, script.startdate, script.starttime, 
+script.subjectid, script.groupid, script.sessionid, 
+script.elapsedtime, script.completed, script.currentblock,
+
+parameters.version, values.subtest,parameters.age, parameters.gender, parameters.handedness,
+parameters.diagnosis, parameters.taskOrder,
+
+values.T8_rawscore, values.T8_rawscore_corrected, values.T8_Zscore, values.T8_propCorrect, 
+values.T8_RT, values.T8_corrRT,
+
+//individual results
+values.T8_1, values.T8_2, values.T8_3, values.T8_4, values.T8_5, values.T8_6,
+values.T8_7, values.T8_8, values.T8_9, values.T8_10, values.T8_11, values.T8_12,
+values.T8_13, values.T8_14, values.T8_15,
+
+expressions.prop_emotion_accuracy)
+</summarydata>
+
+************************************************************************************************************************
+	VALUES:
+************************************************************************************************************************
+
+
+<parameters>
+/posttrialpause = 200
+</parameters>
+
+
+<values>
+/POS = 0;
+/NEG = 0;
+/POS2 = 0;
+/NEG2 = 0;
+/NEG3 = 0;
+/NEG4 = 0;
+/NEG5 = 0;
+/NEG6 = 0;
+/NEG7 = 0;
+/NEG8 = 0;
+
+/Aggressive = ""
+/Attractive = ""
+/Caring = ""
+/Confident = ""
+/Dominant = ""
+/EmotionallyStable = ""
+/Intelligent = ""
+/Responsible = ""
+/Sociable = ""
+/Trustworthy = ""
+/Unhappy = ""
+/Weird = ""
+/timing = ""
+/facepic = ""
+/Competency = ""
+/Warmth = ""
+
+
+/stimulusitem = ""
+/selected_stimuli = "";
+/left = ""
+/right = ""
+/left_x = 0
+/right_x = 0
+/left_y = 0
+/right_y = 0
+/sub = 
+/responsetype = 
+/default = 0
+/sample_num = 0
+/num_redo_trials = 0
+/next_trial = 0
+
+/choice = "";
+/choice2 = "";
+/Side = "";
+/Side2 = "";
+/trialRIGHT = "";
+/trialLEFT = "";
+/trialRIGHT2 = "";
+/trialLEFT2 = "";
+/randomfix = 0;
+/choiceRJ = "";
+
+/subtest = "subtest8"
+/subtest8_testitem = 1
+/subtest8_instructions = 1
+/selectedResponse = ""
+/correctResponse = ""
+/trialStartTime = ""
+/RT = ""
+/repeat = 0
+/trialCount = 0
+/testitem = ""
+/testitemNR2= ""
+/repeatCounter = 0
+/repeatPR = 1  
+/countPR = 0
+
+/emotion = 0
+/intensity = 0
+/encoder = 0
+/emotion_accuracy = 0
+/daily_occurence = 0
+
+/sum_emotion_accuracy = 0
+/count_emotionprofiles = 0
+
+//summary Variables:
+/T8_rawscore = "NA"
+/T8_rawscore_corrected = "NA"
+/T8_Zscore = "NA"
+/T8_propCorrect = "NA"
+/T8_corrRT = "NA"
+/T8_RT = "NA"
+/T8_1 = "NA"
+/T8_2 = "NA"
+/T8_3 = "NA"
+/T8_4 = "NA"
+/T8_5 = "NA"
+/T8_6 = "NA"
+/T8_7 = "NA"
+/T8_8 = "NA"
+/T8_9 = "NA"
+/T8_10 = "NA"
+/T8_11 = "NA"
+/T8_12 = "NA"
+/T8_13 = "NA"
+/T8_14 = "NA"
+/T8_15 = "NA"
+
+//normative data:
+/Mean = 5.48
+/SD = 0.93
+
+//no correction made in this subtest:
+/MeanCorrected = 5.48
+/SDCorrected = 0.93
+</values>
+
+**************************************************************************************************************
+	EXPRESSIONS
+**************************************************************************************************************
+<expressions>
+/numberCorrect = list.corrRT.itemcount
+/propCorrect = list.ACC.mean
+/meanCorrRT = list.corrRT.mean
+/meanRT = list.RT.mean
+/zscore = (values.T8_rawscore_corrected - values.MeanCorrected)/values.SDCorrected
+/prop_emotion_accuracy = values.sum_emotion_accuracy/values.count_emotionprofiles
+</expressions>
+**************************************************************************************************************
+	DEFAULTS
+**************************************************************************************************************
+<defaults>
+/canvasaspectratio = (4,3)
+/minimumversion = "6.5.2.0"
+/fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+/txbgcolor = white
+/txcolor = black
+/screencolor = white
+/inputdevice = mouse
+</defaults>
+
+*****************************************************   Wellcome Block   *************************************
+<block instruction1>
+/ trials = [1 = instr]
+/ screencapture = true
+</block>
+
+<block Consent>
+/ preinstructions = (htmlpage.consent) 
+/ screencapture = true
+</block>
+
+<block Remi_Ins>
+/ preinstructions = (htmlpage.remi_instruct) 
+/ screencapture = true
+</block>
+
+<block realinstruct>
+/trials = [1 = real_Instruct;
+           2 = real_InstructReminder]
+/ screencapture = true
+</block>
+
+
+////////////////////////////////////////////////  LA Task Blocks    ///////////////////////////////////////////
+
+<block LA1>
+/onblockbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+	values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue;
+]
+/ trials = [1= LA1]                     
+</block>
+
+
+<block LA1PD>
+/onblockbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+	values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue;
+]
+/ trials = [1 = LA1PD]
+</block>
+
+
+///////////////////////////////////////////////// LAPN ///////////////////////////////////////////////////////
+
+<block LA1PN>
+/onblockbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+	values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue;]
+</block>
+
+//////////////////////////////////////////////// LAPS /////////////////////////////////////////////////////////
+
+<block LA1PS>
+/onblockbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+	values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue;
+]
+/ trials = [1 = LA1PS]
+</block>
+
+
+////////////////////////////////////////////////  LA Task Trials   ///////////////////////////////////////////////////////////////////////////////
+
+************************************************ THIS IS PRACTICE ********************************************************************************
+
+<trial practiceInstruct>
+/ stimulustimes = [ 0 = clearscreen, intropractice, nextButton]
+/validresponse = (nextButton)
+/recorddata = true
+/ screencapture = true
+</trial>
+
+<trial practicereminder>
+/ stimulustimes = [ 0 = clearscreen, reminder, nextButton]
+/validresponse = (nextButton)
+/recorddata = true
+/ screencapture = true
+</trial>
+		                                                       
+<text practiceEnd>
+/ items = ("You finished the practice trials.
+
+
+Press the 'Repeat' button if you wish to practice again. 
+
+Press the 'Continue' button if you wish to procede")
+/ position = (50%, 50%)
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+/ vjustify = center
+/ hjustify = center
+</text>
+
+
+<block practice_end>
+/trials = [1 = practice1_feedback]
+/branch = [
+	if (trial.practice1_feedback.response == "repeatButton")
+	{return block.practice; };
+	]
+/ screencapture = true
+
+</block>
+
+<block practice>
+/trials = [1= practiceInstruct;
+           2= practicereminder;
+           3-10 = LA1]
+/branch = [return block.practice_end;]
+/ screencapture = true
+</block>
+
+<trial practice1_feedback>
+/screencapture = false
+/ stimulustimes = [0 = clearscreen, practiceEnd, nextButton, repeatButton]
+/validresponse = (repeatButton, nextButton)
+/recorddata = true
+/ screencapture = true
+</trial>
+
+<block realLA>
+/trials = [1-8 = LA1]
+</block>
+
+<block realLA2>
+/trials = [1-8 = LA1PD]
+</block>
+
+<block realLA3>
+/trials = [1-8 = LA1PN]
+</block>
+
+<block realLA4>
+/trials = [1-8 = LA1PS]
+</block>
+
+
+
+********************************************************************** THIS WAS PRACTICE ****************************************************************
+<trial real_Instruct>
+/ stimulustimes = [0 = clearscreen, introreal, nextButton]
+/validresponse = (nextButton)
+/recorddata = true
+/ screencapture = true
+</trial>
+
+<trial real_InstructReminder>
+/ stimulustimes = [0 = clearscreen, reminder, nextButton]
+/validresponse = (nextButton)
+/recorddata = true
+/ screencapture = true
+</trial>
+                            
+<trial instr>
+/ stimulustimes = [0 = welcome]
+/timeout = 3000
+/ screencapture = true
+</trial>
+
+////////////////////////////////////////////////////////////////////////// LA Text ///////////////////////////////////////////////////////////////////////
+
+<htmlpage consent>
+/ file = "consent_real.html"
+</htmlpage>
+
+<htmlpage remi_instruct>
+/ file = "Instructions_test_RJ_1.htm"
+</htmlpage>
+
+<text welcome>
+/ items = ("Welcome!")
+/ fontstyle = ("Arial", 10%, true, false, false, false, 5, 1)
+/ position = (50%, 40%)
+/ vjustify = center
+/ size = (90%, 12%)
+</text>
+
+<text intropractice>
+/ items = ("now you will play the practice trial")
+/ fontstyle = ("Arial")
+/ position = (50%, 50%)
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+/ vjustify = center
+</text>
+
+<text introreal>
+/ items = ("now you will play the real trial")
+/ fontstyle = ("Arial")
+/ position = (50%, 50%)
+/ vjustify = center
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+</text>
+
+
+<text reminder>
+/ items=("Press 'A' if you want to accept the gamble.
+
+Press 'B' if you want to reject the gamble.")
+/ position = (50%, 50%)
+/ hjustify = center
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+</text>
+
+<page Explanation1>
+<h1></h1><hr>
+<center>In this experiment we will show you 15 faces and ask you to pick the face avatar that you best identify with.
+Keep in mind, this face avatar will be visible to other online players.
+<br><br><br>In the subsequent task you will be presented with a circle that is split into two halfs which display different amounts of money.
+This is called a gamble and you will choose between accepting it (pressing 'A') or rejecting it (pressing 'B').
+<br><br><br>After this, you will see the faces of other participants and you will make gambling decisions for these participants.
+None of the training trials will be implemented in your payoff; these are solely for practice purposes.
+<br><br>Please press continue to proceede.</center>
+</page>
+
+<text ExplanationText>
+/ items=("In this example you would be facing a choice between gaining $10, 
+          but potentially loosing $-12. How would you decide?")
+/ position = (50%, 15%)
+/ hjustify = center
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+</text>
+
+<text ExampleMoneyLeft>
+/items = ("$10")
+/position = (43.6,57)
+</text>
+
+<text ExampleMoneyRight>
+/items = ("$-12")
+/position = (56.4,57)
+</text>
+
+   
+<trial Explanation1>
+/stimulustimes = [0 = clearscreen, example, r, r2, r3, r4, ExampleMoneyLeft, ExampleMoneyRight, ExplanationText]
+/timeout = 8000
+/ screencapture = true
+</trial>   
+
+<block EX1>
+/ postinstructions = (Explanation1)
+/ screencapture = true
+</block>
+
+block EX2>
+/ trials = [1 = Explanation1]
+</block>
+
+
+***************************************************** Experiment ***********************************************************************
+*****************************************************            ***********************************************************************
+<expt 1> 
+/ blocks=[
+		   1 = instruction1;
+           2 = Consent;
+		   3 = Remi_Ins;
+		   4 = EX1;
+		   5 = introFaces;
+		   6 = subtest8;           		   
+		   7 = DecisionForSelf;
+           8 = practice;               //practice 
+		   
+		   9= realinstruct;
+		   10= DecisionForSelf2;
+		   11= realLA;                  
+		  		  
+		   12 = introFaces2;
+		   13 = PictureStr1;
+		   14 = DecisionForOther;
+		   15 = realLA2;               
+		   
+		   16= PictureStr3;
+		   17 = DecisionForOther;
+		   18 = realLA3;              
+		   
+	       19 = PictureStr1;
+		   20 = DecisionForOther;
+           21 = realLA4;
+		   
+		   
+		   22 = PictureStr3;
+		   23 = DecisionForOther;
+		   24 = realLA4;
+		   
+		   25 = PictureStr2;
+		   26 = DecisionForOther;
+		   27 = realLA3;
+		   
+		   28= DecisionForSelf2;
+		   29= realLA;
+		   
+		   30= PictureStr1;
+		   31 = DecisionForOther;
+           32= realLA2;
+		   
+		   33 = break;                                     //BREAK
+		   
+		   34 = PictureStr3;
+		   35 = DecisionForOther;
+		   36 = realLA4;
+		   
+		   37 = PictureStr2;
+		   38 = DecisionForOther;
+		   39 = realLA3;
+		   
+		   40= PictureStr1;
+		   41 = DecisionForOther;
+           42= realLA2;
+		   
+		   43= DecisionForSelf2;
+		   44= realLA;
+		   
+		   
+		   45 = PictureStr3;
+		   46 = DecisionForOther;
+		   47 = realLA4;
+		   
+		   48= DecisionForSelf2;
+		   49= realLA;
+		   
+		   50 = PictureStr2;
+		   51 = DecisionForOther;
+		   52 = realLA3;
+		   
+		   53= PictureStr1;
+		   54 = DecisionForOther;
+           55= realLA2;
+		   
+		   
+		   56 = break;                                    //BREAK
+		   
+		   57 = PictureStr2;
+		   58 = DecisionForOther;
+		   59 = realLA3;
+		   
+		   60 = PictureStr3;
+		   61 = DecisionForOther;
+		   62 = realLA4;
+		   
+		   63= PictureStr1;
+		   64 = DecisionForOther;
+           65= realLA2;
+		   
+		   66= DecisionForSelf2;
+		   67= realLA;
+		   
+		   68 = PictureStr3;
+		   69 = DecisionForOther;
+		   70 = realLA4;
+		   
+		   71 = PictureStr2;
+		   72 = DecisionForOther;
+		   73 = realLA3;
+		   
+		   74= DecisionForSelf2;
+		   75= realLA;
+		   
+		   76= PictureStr1;
+		   77 = DecisionForOther;
+           78= realLA2;
+		   
+		   79= break;                                     //BREAK
+		   
+		   80 = PictureStr3;
+		   81 = DecisionForOther;
+		   82= realLA4;
+		   
+		   83 = PictureStr2;
+		   84 = DecisionForOther;
+		   85 = realLA3;
+		   
+		   86= DecisionForSelf2;
+		   87= realLA;
+		   
+		   88= PictureStr1;
+		   89 = DecisionForOther;
+           90= realLA2;
+		  
+		     
+		   91 = PictureStr3;
+		   92 = DecisionForOther;
+		   93 = realLA4;
+		   
+		   94= DecisionForSelf2;
+		   95= realLA;
+		   
+		   96 = PictureStr2;
+		   97 = DecisionForOther;
+		   98 = realLA3;
+		
+		   99= PictureStr1;
+		   100 = DecisionForOther;
+           101= realLA2;
+		   
+		   102 = finish;	                        //face ratings 
+ 
+		   103 = instructionEM;
+           104 = ratings;
+		   105 = thankEM;
+		   
+		   ]
+/branch = [ return block.practice_end;]
+</expt>
+	     
+********************************************************* Fixi Trial WICHTIG Weil Rand. ******************************************************************************
+*********************************************************************************************************************************************************
+
+<trial fixi>
+/ ontrialbegin = [values.randomfix = round(rand(500,3000))]
+/ trialduration = values.randomfix
+/ stimulustimes = [0 = clearscreen, fixation]
+/ ontrialend = [
+	values.Side = "";
+	values.choiceRJ = ""
+]
+/ recorddata = true
+/ screencapture = true
+</trial>
+
+/////////////////////////////////////////////////// Trials LA1 - LA8  /////////////////////////////////////////////////////////////////////////
+
+<list error_trials>
+/items = ()
+</list>
+
+
+<trial LA1>
+/inputdevice = keyboard
+/ontrialbegin = [
+    values.POS = list.MoneyPos.nextvalue;
+    values.NEG = list.MoneyNeg.nextvalue;
+    values.Side = list.Side.nextvalue;
+    
+    if (values.Side == 1) {
+        values.trialLEFT = values.POS;
+        values.trialRIGHT = values.NEG;
+    } else if (values.Side == 2) {
+        values.trialLEFT = values.NEG;
+        values.trialRIGHT = values.POS;
+    }
+]
+/stimulustimes = [0 = clearscreen, example, r, r2, r3, r4, MoneyNeg, MoneyPos, keyreminder]
+/validresponse = ("a", "b")
+/timeout = 3000
+/recorddata = true
+/ontrialend = [	
+        
+	if (trial.LA1.response == 30) {
+	values.choice = 1
+	
+    } else if (trial.LA1.response == 48){
+		values.choice = 0
+		
+    } else (trial.LA1.response == 0){
+		values.choice = 9999
+
+	};
+]
+		
+/branch = [
+          return trial.fixi ]
+/ screencapture = true
+</trial>
+
+
+
+
+/////////////////////////////////////////////////// Trials LA1 - LA8 with FACES /////////////////////////////////////////////////////////////////////////
+
+<trial LA1PD>
+/inputdevice = keyboard
+/ontrialbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+	values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue
+	]
+/ontrialbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+    values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue;
+	
+	if (values.Side == 1) {values.trialLEFT = values.POS; values.trialRIGHT = values.NEG}
+	else if (values.Side == 2) {values.trialLEFT = values.NEG; values.trialRIGHT = values.POS}
+	
+	if (values.Side == 1) {values.trialLEFT = values.POS; values.trialRIGHT = values.NEG}
+	else if (values.Side == 2) {values.trialLEFT = values.NEG; values.trialRIGHT = values.POS}
+	]
+/stimulustimes = [0 = clearscreen, example, r, r2, r3, r4, MoneyNeg, MoneyPos, PDKop, keyreminder]
+/validresponse = ("a", "b")
+/ timeout = 3000
+/ recorddata = true
+/branch = [trial.fixi;]
+</trial>
+
+
+/////////////////////////////////////////////////  LA Faces 2 PNKop ///////////////////////////////////////////////////////////////////////////////////////
+
+<trial LA1PN>
+/inputdevice = keyboard
+/ontrialbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+	values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue
+	]
+/ontrialbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+    values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue;
+	
+	if (values.Side == 1) {values.trialLEFT = values.POS; values.trialRIGHT = values.NEG}
+	else if (values.Side == 2) {values.trialLEFT = values.NEG; values.trialRIGHT = values.POS}
+	
+	if (values.Side == 1) {values.trialLEFT = values.POS; values.trialRIGHT = values.NEG}
+	else if (values.Side == 2) {values.trialLEFT = values.NEG; values.trialRIGHT = values.POS}
+	]
+/stimulustimes = [0 = clearscreen, example, r, r2, r3, r4, MoneyNeg, MoneyPos,PDKop, PNKop, keyreminder]
+/validresponse = ("a", "b")
+/ timeout = 3000
+/ recorddata = true
+/branch = [trial.fixi;]
+/ screencapture = true
+</trial>
+
+
+////////////////////////////////////////////////////// LA Faces PSKop  ////////////////////////////////////////////////////////////////////////////////
+
+<trial LA1PS>
+/inputdevice = keyboard
+/ontrialbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+	values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue
+	]
+/ontrialbegin = [
+	values.POS = list.MoneyPos.nextvalue;
+    values.NEG = list.MoneyNeg.nextvalue;
+	values.Side = list.Side.nextvalue;
+	
+	if (values.Side == 1) {values.trialLEFT = values.POS; values.trialRIGHT = values.NEG}
+	else if (values.Side == 2) {values.trialLEFT = values.NEG; values.trialRIGHT = values.POS}
+	
+	if (values.Side == 1) {values.trialLEFT = values.POS; values.trialRIGHT = values.NEG}
+	else if (values.Side == 2) {values.trialLEFT = values.NEG; values.trialRIGHT = values.POS}
+	]
+/stimulustimes = [0 = clearscreen, example, r, r2, r3, r4, MoneyNeg, MoneyPos,PDKop, PSKop, keyreminder]
+/validresponse = ("a", "b")
+/ timeout = 3000
+/ recorddata = true
+/branch = [trial.fixi;]
+/ screencapture = true
+</trial>
+
+
+***************************************************  LA TASK GEOMETRICS  *****************************************************************************
+<text fixation>
+/ items = ("+")
+/ position = (50%, 55%)
+/ erase = false
+/ size = (50%, 50%)
+/ vjustify = center
+/ fontstyle = ("Arial", 30pt)
+</text>
+
+<picture example>
+/ items = ("circleblack.jpg")
+/ position = (50%, 57%)                                     // orig. circle war 50 65 pos, size 60 60
+/ size = (58%, 58%)
+</picture>
+                                                       
+
+***************************************************  Real Numbers  *****************************************************************************
+***************************************************  Real Numbers  *****************************************************************************
+***************************************************  Real Numbers  *****************************************************************************
+
+<list MoneyPos>          
+/items = (6,8,10,12,14,16,18,20,6,8,10,12,14,16,18,20,6,8,10,12,14,16,18,20,6,8,10,12,14,16,18,20,6,8,10,12,14,16,18,20,6,8,10,12,14,16,18,20,6,8,10,12,14,16,18,20,6,8,10,12,14,16,18,20)          
+/selectionmode =random
+</list>           
+
+<list MoneyNeg>         
+/items = (-20,-20,-20,-20,-20,-20,-20,-20,-18,-18,-18,-18,-18,-18,-18,-18,-16,-16,-16,-16,-16,-16,-16,-16,-14,-14,-14,-14,-14,-14,-14,-14,-12,-12,-12,-12,-12,-12,-12,-12,-10,-10,-10,-10,-10,-10,-10,-10,-8,-8,-8,-8,-8,-8,-8,-8,-6,-6,-6,-6,-6,-6,-6,-6)
+/selectionmode = random
+</list>     
+
+
+<list Side>		
+/items = (1,2,2,2,1,1,2,1,1,2,2,2,1,1,2,1,1,2,2,2,1,1,2,1,1,2,2,2,1,1,2,1,1,2,2,2,1,1,2,1,1,2,2,2,1,1,2,1,1,2,2,2,1,1,2,1,1,1,1,1,2,2,2,2)	
+/selectionmode = random
+</list>	
+
+***************
+Responseboxes:
+***************
+
+<text MoneyPos>
+/items = ("$<% (values.trialLEFT) %>")
+/position = (43.6,57)
+</text>
+
+<text MoneyNeg>
+/items = ("$<% (values.trialRIGHT) %>")
+/position = (56.4,57)
+</text>
+<text MoneyNeg2>
+/items = ("$<% (values.trialRIGHT) %>")
+/position = (56.4,57)
+</text>
+<text MoneyNeg3>
+/items = ("$<% (values.trialRIGHT) %>")
+/position = (56.4,57)
+</text>
+<text MoneyNeg4>
+/items = ("$<% (values.trialRIGHT) %>")
+/position = (56.4,57)
+</text>
+<text MoneyNeg5>
+/items = ("$<% (values.trialRIGHT) %>")
+/position = (56.4,57)
+</text>
+<text MoneyNeg6>
+/items = ("$<% (values.trialRIGHT) %>")
+/position = (56.4,57)
+</text>
+<text MoneyNeg7>
+/items = ("$<% (values.trialRIGHT) %>")
+/position = (56.4,57)
+</text>
+<text MoneyNeg8>
+/items = ("$<% (values.trialRIGHT) %>")
+/position = (56.4,57)
+</text>
+
+*********************************  rectanlges Left  *********************************
+<shape r>
+/ color = black
+/ size = (9%,13.5%)
+/ position = (43.6,57)
+</shape>
+
+<shape r2>
+/ color = white
+/ size = (8.37%,12.5%)
+/ position = (43.6,57)
+</shape>
+
+*********************************  rectanlges Right  *********************************
+<shape r3>
+/ color = black
+/ size = (9%,13.5%)
+/ position = (56.4,57)
+</shape>
+
+<shape r4>
+/ color = white
+/ size = (8.37%,12.5%)
+/ position = (56.4,57)
+</shape>
+
+////*********************************************** FACES PICTURES *************************************************\\\\"")
+***************************************************                ********************************************************************* 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*****
+*************************************************** FACES PICTURES **********************************************************************
+\\\\***********************************************                *************************************************////"")
+
+<picture P1_1>
+/items = ("Face1NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P2_2>
+/items = ("Face2NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P3_3>
+/items = ("Face3NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P4_4>
+/items = ("Face4NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P5_5>
+/items = ("Face5NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P6_6>
+/items = ("Face6NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P7_7>
+/items = ("Face7NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P8_8>
+/items = ("Face8NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P9_9>
+/items = ("Face9NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P10_10>
+/items = ("Face10NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P11_11>
+/items = ("Face11NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P12_12>
+/items = ("Face12NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P13_13>
+/items = ("Face13NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P14_14>
+/items = ("Face14NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture P15_15>
+/items = ("Face15NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+
+
+<text P1T>
+/ items = ("This is your face avatar. The other participants will see your face avatar.")
+/ fontstyle = ("Arial")
+/ position = (50%, 20%)
+/ hjustify = center
+/vjustify = center
+/ halign = center
+/ fontstyle = ("Arial", 4%,false, false, false, false, 5, 1)
+</text>
+
+<text You>
+/ items = ("if you wish to select a different face, press the 'Back to Faces' button")
+/ fontstyle = ("Arial")
+/ position = (50%, 80%)
+/ vjustify = center
+/ hjustify = center
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+</text>
+
+<text DecisionForSelf>
+/ items = ("Please make the following gambling decisions for yourself.")
+/ fontstyle = ("Arial")
+/ position = (50%, 50%)
+/ vjustify = center
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+</text>
+
+<text DecisionForSelf2>
+/ items = ("Please make the following gambling decisions for yourself.
+The real experiment starts as soon as you continue.")
+/ fontstyle = ("Arial")
+/ position = (50%, 50%)
+/ vjustify = center
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+</text>
+
+<text DecisionForOther>
+/ items = ("Please make the following gambling decisions for this participant.
+The real experiment starts as soon as you continue.")
+/ fontstyle = ("Arial")
+/ position = (50%, 50%)
+/ vjustify = center
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+</text>
+
+
+<trial DecisionForSelf>
+/ inputdevice = mouse
+/ stimulustimes = [0 = clearscreen, DecisionForSelf, nextButton]
+/validresponse = (nextButton)
+/recorddata = true
+/ screencapture = true
+</trial>
+
+<trial DecisionForSelf2>
+/ inputdevice = mouse
+/ stimulustimes = [0 = clearscreen, DecisionForSelf2, nextButton]
+/validresponse = (nextButton)
+/recorddata = true
+/ screencapture = true
+</trial>
+
+<trial DecisionForOther>
+/ inputdevice = mouse
+/ stimulustimes = [0 = clearscreen, DecisionForOther, nextButton]
+/validresponse = (nextButton)
+/recorddata = true
+/ screencapture = true
+</trial>
+
+<block DecisionForSelf>
+/ trials = [1=DecisionForSelf]
+</block>
+<block DecisionForSelf2>
+/ trials = [1=DecisionForSelf2]
+</block>
+<block DecisionForOther>
+/ trials = [1=DecisionForOther]
+</block>
+
+
+<text Stranger>
+/ items = ("decide for")
+/ fontstyle = ("Arial")
+/ position = (50%, 20%)
+/ vjustify = center
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+</text>
+
+
+************************************************* FACES TRIALS *************************************************
+
+
+<trial P1>
+/stimulustimes = [ 0 = clearscreen, P1_1, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P2>
+/stimulustimes = [ 0 = clearscreen, P2_2, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P3>
+/stimulustimes = [ 0 = clearscreen, P3_3, P1T, You ]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P4>
+/stimulustimes = [ 0 = clearscreen, P4_4, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P5>
+/stimulustimes = [ 0 = clearscreen, P5_5, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P6>
+/stimulustimes = [ 0 = clearscreen, P6_6, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P7>
+/stimulustimes = [ 0 = clearscreen, P7_7, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P8>
+/stimulustimes = [ 0 = clearscreen, P9_9, P1T, You ]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P9>
+/stimulustimes = [ 0 = clearscreen, P9_9, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P10>
+/stimulustimes = [ 0 = clearscreen, P10_10, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P11>
+/stimulustimes = [ 0 = clearscreen, P11_11, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P12>
+/stimulustimes = [ 0 = clearscreen, P12_12, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P13>
+/stimulustimes = [ 0 = clearscreen, P13_13, P1T, You ]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P14>
+/stimulustimes = [ 0 = clearscreen, P14_14, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+<trial P15>
+/stimulustimes = [ 0 = clearscreen, P15_15, P1T, You]
+/timeout = 4000
+/ screencapture = true
+</trial>
+
+************************************************* Experiment New: FACES TRIALS *************************************************
+************************************************* Experiment New: FACES TRIALS *************************************************
+************************************************* Experiment New: FACES TRIALS *************************************************
+************************************************* Experiment New: FACES TRIALS        instructions   subtest8_testitem
+
+<trial fake8_1P1>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3,                                     
+	comp4, comp5,comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem,comp1_hl; 1500 = clearscreen, P1_1,     
+	P1T, You, nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P1.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P2>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp2_hl; 1500 = clearscreen, P2_2,
+	P1T, You, nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P2.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P3>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp3_hl; 1500 = clearscreen, P3_3,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P3.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P4>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp4_hl; 1500 = clearscreen, P4_4,
+	P1T, You, nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P4.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P5>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp5_hl; 1500 = clearscreen, P5_5,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P5.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+************************************************* Experiment New: FACES TRIALS  2 *************************************************
+
+<trial fake8_1P6>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp6_hl; 1500 = clearscreen, P6_6,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P6.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P7>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem,comp7_hl; 1500 = clearscreen, P7_7,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P7.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P8>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp8_hl; 1500 = clearscreen, P8_8,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P8.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P9>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp9_hl; 1500 = clearscreen, P9_9,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P9.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P10>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp10_hl; 1500 = clearscreen, P10_10,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P10.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P11>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp11_hl; 1500 = clearscreen, P11_11,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P11.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P12>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem,comp12_hl; 1500 = clearscreen, P12_12,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P12.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P13>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp13_hl; 1500 = clearscreen, P13_13,
+	P1T, You,nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P13.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P14>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp14_hl; 1500 = clearscreen, P14_14,
+	P1T, You, nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P14.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+
+<trial fake8_1P15>
+/stimulustimes= [
+	0 = clearscreen, instructions, comp1, comp2, comp3, 
+	comp4, comp5, comp6, comp7, comp8, 
+	comp9, comp10,comp11, comp12, comp13, 
+	comp14, comp15,subtest8_testitem, comp15_hl; 1500 = clearscreen, P15_15,
+	P1T, You, nextButton, BackToFaces]
+/validresponse = (BackToFaces, nextButton)
+/recorddata = true 
+/branch = [
+	if (trial.fake8_1P15.response == "BackToFaces"){
+	    return trial.subtest8_start;};
+]
+/ screencapture = true
+</trial>
+************************************************* Experiment New: FACES TRIALS *************************************************
+************************************************* Experiment New: FACES TRIALS *************************************************
+************************************************* Experiment New: FACES TRIALS *************************************************
+************************************************* Experiment New: FACES TRIALS *************************************************
+
+************************************************* Remi's suggestion of  DOMINANT - NATURAL - SUBMISSIVE *************************************************
+<picture PD>
+/items = ("Face1NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture PN>
+/items = ("Face2NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+<picture PS>
+/items = ("Face3NEWBIG.png")
+/select = sequence
+/position = (50%, 50%)
+</picture>
+
+*************************************************                                                       *************************************************
+
+<trial PDT>
+/stimulustimes = [ 0 = clearscreen, PD, Stranger ]
+/timeout = 3000
+/ screencapture = true
+</trial>
+
+<trial PNT>
+/stimulustimes = [ 0 = clearscreen, PN, Stranger ]
+/timeout = 3000
+/ screencapture = true
+</trial>
+
+<trial PST>
+/stimulustimes = [ 0 = clearscreen, PS, Stranger]
+/timeout = 3000
+/ screencapture = true
+</trial>
+
+*************************************************     NEW TRIALS showing picture during LA task - small over circle  *************************************************
+
+<picture PDKop>
+/items = ("Face1NEWsmall.png")
+/position = (50%, 15%)
+</picture>
+
+<picture PNKop>
+/items = ("Face2NEWsmall.png")
+/position = (50%, 15%)
+</picture>
+
+<picture PSKop>
+/items = ("Face3NEWsmall.png")
+/position = (50%, 15%)
+</picture>
+
+<text keyreminder>
+/items = ("Press 'A' to accept the gamble.
+Press 'B' to reject the gamble.")
+/ fontstyle = ("Arial", 2.00%, false, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 95%)
+/halign = center
+</text>
+
+*************************************************        NEW TRIALS showing picture during LA task      *************************************************
+<block PictureStr1>
+/trials = [ 1 =PDT ]
+</block>
+<block PictureStr2>
+/trials = [ 1 =PNT ]
+</block>
+<block PictureStr3>
+/trials = [ 1 =PST ]
+</block>
+*************************************************
+<parameters>
+/group = 1
+/pictureheight = 50%
+/stimulusduration = 5000
+/ITI = 0
+</parameters>
+
+********************************************************************************************************************************
+Task 1: Select a face for practice if practice is active
+********************************************************************************************************************************
+
+<item practiceitems>       
+/1 = "004_o_m_a_a.png"
+</item>
+
+<parameters>										
+/version = "abbreviated"														
+</parameters>
+
+//handed in by batch file:
+<parameters>
+/gender = "NA"							
+/age = "NA"								
+/handedness = "NA"						
+/diagnosis = "NA"						
+/taskOrder = "NA"						
+</parameters>
+
+**************************************************************************************************************
+	INSTRUCTIONS
+**************************************************************************************************************
+
+<text introFaces>
+/ items = ("You will see 15 faces. 
+
+Please click on the one you identify with the most.")
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+/ size = (80%, 80%)
+/ vjustify = center
+/ hjustify = center
+</text>
+
+<text introFaces2>
+/ items = ("Now you will see the face from another online participant.
+
+Please make the gambling decisions for this participant.")
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+/ size = (80%, 80%)
+/ vjustify = center
+/ hjustify = center
+</text>
+
+
+<text selectReminder>
+/ items = ("Please make a selection")
+/ fontstyle = ("Arial", 3.5%, true, false, false, false, 5, 1)
+/ position = (45%, 90%)
+/ vjustify = center
+/ valign = center
+/ halign = center
+/ erase = false
+/ txcolor = red
+/ txbgcolor = white
+</text>
+
+<button continueButton>
+/ caption = "Continue"
+/ position = (50%, 90%)
+/ fontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/ size = (20%, 5%)
+/ erase = false
+</button>
+
+<text instructions>
+/ items = subtest8_instructions
+/ select = values.subtest8_testitem
+/ fontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/ position = (50%, 7%)
+/ size = (80%, 10%)
+/ vjustify = center
+/ valign = center
+/ halign = center
+/ erase = false
+</text>
+
+*********///********///*****///*****///*****///*****///******* 3 ROW *****///******///********///******///******///*******///*******///********///**********
+*********///********///*****///*****///*****///*****///******* 3 ROW *****///******///********///******///******///*******///*******///********///**********
+
+<shape comp1>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (15%, 81.8%)                                            
+</shape>
+
+<picture comp1_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked      
+/ size = (26%, 26%)
+/ hposition = shape.comp1.hposition
+/ vposition = shape.comp1.vposition
+/ erase = false
+</picture>
+
+<shape comp2>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (32%, 81.8%)
+</shape>
+
+<picture comp2_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp2.hposition
+/ vposition = shape.comp2.vposition
+/ erase = false
+</picture>
+
+<shape comp3>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (50%, 81.8%)
+</shape>
+
+<picture comp3_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp3.hposition
+/ vposition = shape.comp3.vposition
+/ erase = false
+</picture>
+
+<shape comp4>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (68.3%, 81.8%)
+</shape>
+
+<picture comp4_hl>
+/ items = ("comphighlighter.png")                                     // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp4.hposition
+/ vposition = shape.comp4.vposition
+/ erase = false
+</picture>
+
+<shape comp5>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (85%, 81.8%)
+</shape>
+
+<picture comp5_hl>
+/ items = ("comphighlighter.png")                                     // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp5.hposition
+/ vposition = shape.comp5.vposition
+/ erase = false
+</picture>
+
+*********///********///*****///*****///*****///*****///******* 2 ROW *****///******///********///******///******///*******///*******///********///**********
+*********///********///*****///*****///*****///*****///******* 2 ROW *****///******///********///******///******///*******///*******///********///**********
+
+<shape comp6>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (15.5%, 53%)
+</shape>
+
+<picture comp6_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked      
+/ size = (26%, 26%)
+/ hposition = shape.comp6.hposition
+/ vposition = shape.comp6.vposition
+/ erase = false
+</picture>
+
+<shape comp7>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (32%, 53%)
+</shape>
+
+<picture comp7_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp7.hposition
+/ vposition = shape.comp7.vposition
+/ erase = false
+</picture>
+
+<shape comp8>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (49.8%, 53%)
+</shape>
+
+<picture comp8_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp8.hposition
+/ vposition = shape.comp8.vposition
+/ erase = false
+</picture>
+
+<shape comp9>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (67.9%, 53%)
+</shape>
+
+<picture comp9_hl>
+/ items = ("comphighlighter.png")                                     // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp9.hposition
+/ vposition = shape.comp9.vposition
+/ erase = false
+</picture>
+
+<shape comp10>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (84.8%, 53%)
+</shape>
+
+<picture comp10_hl>
+/ items = ("comphighlighter.png")                                     // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp10.hposition
+/ vposition = shape.comp10.vposition
+/ erase = false
+</picture>
+
+
+*********///********///*****///*****///*****///*****///******* 1 ROW *****///******///********///******///******///*******///*******///********///**********
+*********///********///*****///*****///*****///*****///******* 1 ROW *****///******///********///******///******///*******///*******///********///**********
+
+<shape comp11>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (15.3%, 24.3%)
+</shape>
+
+<picture comp11_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked      
+/ size = (26%, 26%)
+/ hposition = shape.comp11.hposition
+/ vposition = shape.comp11.vposition
+/ erase = false
+</picture>
+
+<shape comp12>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (32%, 24.3%)
+</shape>
+
+<picture comp12_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp12.hposition
+/ vposition = shape.comp12.vposition
+/ erase = false
+</picture>
+
+<shape comp13>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (49.8%, 24.3%)
+</shape>
+
+<picture comp13_hl>
+/ items = ("comphighlighter.png")                                    // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp13.hposition
+/ vposition = shape.comp13.vposition
+/ erase = false
+</picture>
+
+<shape comp14>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (67.9%, 24.3%)
+</shape>
+
+<picture comp14_hl>
+/ items = ("comphighlighter.png")                                     // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp14.hposition
+/ vposition = shape.comp14.vposition
+/ erase = false
+</picture>
+
+<shape comp15>
+/ shape = rectangle
+/ size = (20.5%*0.75, 20.5%)
+/ color = red
+/ erase = false
+/ position = (84.8%, 24.3%)
+</shape>
+
+<picture comp15_hl>
+/ items = ("comphighlighter.png")                                     // green square around the selected face once clicked 
+/ size = (26%, 26%)
+/ hposition = shape.comp15.hposition
+/ vposition = shape.comp15.vposition
+/ erase = false
+</picture>
+
+<button repeatButton>
+/ caption = "Repeat"
+/ position = (30%, 90%)
+/ fontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/ size = (20%, 5%)
+/ erase = false
+</button>
+
+<button BackToFaces>
+/ caption = "Back to Faces"
+/ position = (30%, 90%)
+/ fontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/ size = (25%, 5%)
+/ erase = false
+</button>
+
+<button nextButton>
+/ caption = "Continue"
+/ position = (70%, 90%)
+/ fontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/ size = (20%, 5%)
+/ erase = false
+</button>
+
+<button advanceButton>
+/ caption = " "
+/ position = (90%, 5%)
+/ fontstyle = ("Arial", 3%, true, false, false, false, 5, 1)
+/ size = (5%, 5%)
+/ erase = false
+</button>
+
+<text finish>
+/ items = ("Thank you!
+
+This part of the test is over.")
+/ fontstyle = ("Arial", 4%, false, false, false, false, 5, 1)
+/ position = (50%, 50%)
+/ size = (80%, 80%)
+/ vjustify = center
+/ valign = center
+/ halign = center
+</text>
+
+
+<trial intro>
+/ inputdevice = mouse
+/ stimulusframes = [1 = clearscreen, introFaces, nextButton]
+/ validresponse = (nextButton)
+/ recorddata = true
+/ screencapture = true
+</trial>
+
+<trial intro2>
+/ inputdevice = mouse
+/ stimulusframes = [1 = clearscreen, introFaces2, nextButton]
+/ validresponse = (nextButton)
+/ recorddata = true
+/ screencapture = true
+</trial>
+
+**************************************************************************************************************
+    finish trial
+**************************************************************************************************************
+
+<trial finish>
+/ stimulusframes = [1 = clearscreen, finish]
+/ trialduration = 4000
+/ recorddata = false
+/ screencapture = true
+</trial>
+
+**************************************************************************************************************
+**************************************************************************************************************
+	STIMULI for FACES
+**************************************************************************************************************
+**************************************************************************************************************
+
+<picture subtest8_testitem>
+/ items = subtest8_testitems
+/ select = values.subtest8_testitem
+/ size = (90%, 90%)
+/ position = (50%,53%)
+/ erase = false
+</picture>
+
+
+<item subtest8_testitems>
+/1 = "Faces_20_04.png"
+</item>
+
+//the numbers indicate the position of the correct image from left (1) to right (5)
+<item subtest8_correctResponses>
+/1 = "1"
+/2 = "2"
+/3 = "3"
+/4 = "4"
+/5 = "5"
+/6 = "6"
+/7 = "7"
+/8 = "8"
+/9 = "9"
+/10 = "10"
+/11 = "11"
+/12 = "12"
+/13= "13"
+/14= "14"
+/15= "15"
+</item>
+
+<item subtest8_instructions>
+/1 = "Please choose your face avatar"
+</item>
+
+**************************************************************************************************************
+**************************************************************************************************************
+	LISTS	
+**************************************************************************************************************
+**************************************************************************************************************
+
+<list subtest8_testitemItemnumbers>                   
+/ poolsize = item.subtest8_testitems.itemcount
+/ selectionmode = sequence                            
+/ selectionrate = always
+</list>
+
+*************************************************
+Data Lists: descriptive statistics
+*************************************************
+Note: list stores 1 = correct response; 0 = incorrect response for each relevant trial    
+any response coded as an error is automatically coded as 0
+<list ACC>                                                                                             
+</list>
+list stores the response latency                                        
+<list RT>
+</list>
+list stores the latency of correct                            
+<list corrRT>
+</list>
+*************************************************************************************************************
+**************************************************************************************************************
+	TRIALS 	FACES
+**************************************************************************************************************
+**************************************************************************************************************
+
+<trial subtest8_start>
+/ ontrialbegin = [
+	//reset variables
+	values.selectedResponse = "";
+	values.RT = "";	
+	values.repeat = 1;
+	picture.comp1_hl.skip = true;
+	picture.comp2_hl.skip = true;
+	picture.comp3_hl.skip = true;
+	picture.comp4_hl.skip = true;
+	picture.comp5_hl.skip = true;
+	picture.comp6_hl.skip = true;
+	picture.comp7_hl.skip = true;
+	picture.comp8_hl.skip = true;
+	picture.comp9_hl.skip = true;
+	picture.comp10_hl.skip = true;
+	picture.comp11_hl.skip = true;
+	picture.comp12_hl.skip = true;
+	picture.comp13_hl.skip = true;
+	picture.comp14_hl.skip = true;
+	picture.comp15_hl.skip = true;
+	text.selectReminder.skip = true;
+	
+	//update trialcounter
+	values.trialCount += 1;
+	
+	//retrieve next image itemnumber
+	values.subtest8_testitem = list.subtest8_testitemItemnumbers.nextindex;
+	values.testitem = item.subtest8_testitems.item(values.subtest8_testitem);
+	values.correctResponse = item.subtest8_correctResponses.item(values.subtest8_testitem);
+]
+/ stimulustimes = [0 = clearscreen, comp1, comp2, comp3, comp4, comp5,comp6, comp7, comp8, comp9, comp10,
+comp11, comp12, comp13, comp14, comp15,
+subtest8_testitem] 
+/ trialduration = 0
+/ recorddata = false
+/ branch = [
+	return trial.subtest8_1;
+]
+/ screencapture = true
+</trial>
+
+
+<trial subtest8_1>
+/ ontrialbegin = [
+	if (values.repeat == 1){
+		values.repeat = 0;
+	};
+]
+/ stimulustimes = [0 = clearscreen, instructions, comp1, comp2, comp3, comp4, comp5,comp6, comp7, comp8,
+comp9, comp10,comp11,comp12, comp13, comp14, comp15,
+subtest8_testitem,
+ comp1_hl, comp2_hl,comp3_hl,comp4_hl,comp5_hl,comp6_hl, comp7_hl,comp8_hl,comp9_hl,comp10_hl,
+ comp11_hl, comp12_hl,comp13_hl,comp14_hl,comp15_hl, selectReminder]
+/ beginresponsetime = 0
+/ validresponse = (comp1, comp2, comp3, comp4, comp5, comp6, comp7, comp8, comp9, comp10,comp11, comp12, comp13, comp14, comp15)
+/ ontrialend = [
+	trial.subtest8_1.resetstimulusframes();
+	
+	values.RT += trial.subtest8_1.latency;
+	
+	if (trial.subtest8_1.response == "comp1"){
+		values.selectedResponse = 1;
+		picture.comp1_hl.skip = false;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+		picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp2"){
+		values.selectedResponse = 2;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = false;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+        picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp3"){
+		values.selectedResponse = 3;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = false;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+        picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp4"){
+		values.selectedResponse = 4;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = false;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+        picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp5"){
+		values.selectedResponse = 5;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = false;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+	    picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;	
+	} else if (trial.subtest8_1.response == "comp6"){
+		values.selectedResponse = 6;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = false;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;	
+	    picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;	
+	} else if (trial.subtest8_1.response == "comp7"){
+		values.selectedResponse = 7;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = false;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+        picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp8"){
+		values.selectedResponse = 8;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = false;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;				
+	} else if (trial.subtest8_1.response == "comp9"){
+		values.selectedResponse = 9;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = false;
+		picture.comp10_hl.skip = true;
+        picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp10"){
+		values.selectedResponse = 10;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = false;
+	    picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;	
+	} else if (trial.subtest8_1.response == "comp11"){
+		values.selectedResponse = 11;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp11_hl.skip = false;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;
+	} else if (trial.subtest8_1.response == "comp12"){
+		values.selectedResponse = 12;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+        picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = false;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp13"){
+		values.selectedResponse = 13;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+        picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = false;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp14"){
+		values.selectedResponse = 14;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;
+        picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = false;
+        picture.comp15_hl.skip = true;		
+	} else if (trial.subtest8_1.response == "comp15"){
+		values.selectedResponse = 15;
+		picture.comp1_hl.skip = true;
+		picture.comp2_hl.skip = true;
+		picture.comp3_hl.skip = true;
+		picture.comp4_hl.skip = true;
+		picture.comp5_hl.skip = true;
+        picture.comp6_hl.skip = true;
+		picture.comp7_hl.skip = true;
+		picture.comp8_hl.skip = true;
+		picture.comp9_hl.skip = true;
+		picture.comp10_hl.skip = true;	
+		picture.comp11_hl.skip = true;
+		picture.comp12_hl.skip = true;
+		picture.comp13_hl.skip = true;
+        picture.comp14_hl.skip = true;
+        picture.comp15_hl.skip = false
+	};
+	
+	text.selectReminder.skip = true;
+	values.subtest8_instructions = text.instructions.currentitem;	
+]
+/ iscorrectresponse = [
+	return
+	(trial.subtest8_1.response == "nextButton" && values.selectedResponse == values.correctResponse);
+]
+/ branch = [
+	if (trial.subtest8_1.response == "nextButton" && values.selectedResponse == ""){
+		text.selectReminder.skip = false;
+		return trial.subtest8_1;
+	} else if (trial.subtest8_1.response == "nextButton"){
+		return trial.subtest8;
+	} else if (trial.subtest8_1.response == "comp1"){
+	    return trial.fake8_1P1;
+	} else if (trial.subtest8_1.response == "comp2"){
+	    return trial.fake8_1P2;
+	} else if (trial.subtest8_1.response == "comp3"){
+	    return trial.fake8_1P3;
+	} else if (trial.subtest8_1.response == "comp4"){
+		return trial.fake8_1P4;
+	} else if (trial.subtest8_1.response == "comp5"){
+	    return trial.fake8_1P5;
+	} else if (trial.subtest8_1.response == "comp6"){
+	    return trial.fake8_1P6;
+	} else if (trial.subtest8_1.response == "comp7"){
+	    return trial.fake8_1P7;
+	} else if (trial.subtest8_1.response == "comp8"){
+	    return trial.fake8_1P8;
+	} else if (trial.subtest8_1.response == "comp9"){
+		return trial.fake8_1P9;
+	} else if (trial.subtest8_1.response == "comp10"){
+	    return trial.fake8_1P10;
+	} else if (trial.subtest8_1.response == "comp11"){
+	    return trial.fake8_1P11;
+	} else if (trial.subtest8_1.response == "comp12"){
+	    return trial.fake8_1P12;
+	} else if (trial.subtest8_1.response == "comp13"){
+	    return trial.fake8_1P13;
+	} else if (trial.subtest8_1.response == "comp14"){
+		return trial.fake8_1P14;
+	} else if (trial.subtest8_1.response == "comp15"){
+	    return trial.fake8_1P15;
+	} else if (values.repeat == 1){
+		return trial.subtest8_1;
+	};
+]
+/ recorddata = false
+/ screencapture = true
+</trial>
+
+<trial subtest8>
+/ iscorrectresponse = [
+	return
+	(values.selectedResponse == values.correctResponse);
+]
+/ ontrialend = [
+	list.ACC.appenditem(trial.subtest8.correct);
+	list.RT.appenditem(values.RT);
+	if (trial.subtest8.correct){
+		list.corrRT.appenditem(values.RT);
+	};
+	
+	if (values.subtest8_testitem == 1){
+		values.T8_1 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 2){
+		values.T8_2 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 3){
+		values.T8_3 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 4){
+		values.T8_4 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 5){
+		values.T8_5 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 6){
+		values.T8_6 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 7){
+		values.T8_7 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 8){
+		values.T8_8 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 9){
+		values.T8_9 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 10){
+		values.T8_10 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 11){
+		values.T8_11 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 12){
+		values.T8_12 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 13){
+		values.T8_13 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 14){
+		values.T8_14 = trial.subtest8.correct;
+	} else if (values.subtest8_testitem == 15){
+		values.T8_15 = trial.subtest8.correct;
+	};
+	
+	values.T8_propCorrect = expressions.propCorrect;
+	values.T8_RT = expressions.meanRT;
+	values.T8_corrRT = expressions.meanCorrRT;
+	values.T8_rawscore = expressions.numberCorrect;	
+	values.T8_rawscore_corrected = values.T8_rawscore;                   //no corrections made in this subtest
+	values.T8_Zscore = expressions.zscore;	
+]
+/ trialduration = 0
+/ branch = [
+	if(values.subtest8_testitem < item.subtest8_testitems.itemcount){
+		return trial.subtest8_start;
+	};
+]
+/ recorddata = true
+/ screencapture = true
+</trial>
+
+
+
+**************************************************************************************************************
+	BLOCKS  FACES
+**************************************************************************************************************
+
+<block introFaces>
+/ trials = [1 = intro]
+</block>
+
+<block introFaces2>
+/ trials = [1 = intro2]
+</block>
+
+<block subtest8>
+/ onblockbegin = [
+	list.subtest8_testitemItemnumbers.reset();
+	list.ACC.reset();
+	list.corrRT.reset();
+	list.RT.reset();
+	values.repeat = 0;
+	values.trialCount = 0;
+]
+/ trials = [1 = subtest8_start]
+</block>
+
+<block finish>
+/ trials = [
+	1 = finish;
+]
+</block>
+
+
+
+<block break>
+/ trials = [1 = break]
+</block>
+
+<trial break>
+/ stimulustimes = [0 = clearscreen, break; 17000 = breakGETREADY]
+/ recorddata = false
+/ timeout = 20000 
+/ screencapture = true
+</trial>
+
+<trial breakYOU>
+/ stimulustimes = [0 = clearscreen, break; 17000 = breakGETREADY]
+/ recorddata = false
+/ timeout = 20000 
+/ screencapture = true
+</trial>
+
+<text break>
+/ items = ("30 seconds break")
+/ fontstyle = ("Arial", 4%, true, false, false, false, 5, 1)
+/ position = (50%, 40%)
+/ size = (80%, 10%)
+/ vjustify = center
+/ valign = center
+/ halign = center 
+</text> 
+
+<text breakGETREADY>
+/ items = ("Please get ready to continue!")
+/ fontstyle = ("Arial", 4%, true, false, false, false, 5, 1)
+/ position = (50%, 60%)
+/ size = (80%, 10%)
+/ vjustify = center
+/ valign = center
+/ halign = center 
+</text> 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////<<<<<<<<<<<<<   SLIDERSSSsss  >>>>>>>>>>>>>/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////<<<<<<<<<<<<<                 >>>>>>>>>>>>>///////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+<surveypage EmotionRating>
+/ ontrialbegin = [
+		values.Attractive = list.EmotionValues.nextvalue;
+		values.Caring = list.EmotionValues.nextvalue;
+		values.Confident  = list.EmotionValues.nextvalue;
+		values.Aggressive = list.EmotionValues.nextvalue;
+		values.Dominant = list.EmotionValues.nextvalue;
+		values.EmotionallyStable = list.EmotionValues.nextvalue;
+		values.Intelligent = list.EmotionValues.nextvalue;
+		values.Mean = list.EmotionValues.nextvalue;
+		values.Responsible = list.EmotionValues.nextvalue;
+		values.Sociable = list.EmotionValues.nextvalue;
+		values.Trustworthy = list.EmotionValues.nextvalue;
+		values.Unhappy = list.EmotionValues.nextvalue;
+		values.Weird = list.EmotionValues.nextvalue;
+		values.Competency = list.EmotionValues.nextvalue;
+		values.Warmth = list.Emotionvalues.nextvalue;
+
+]
+/ caption = ""
+/ questions = [1 = Attractive, Caring, Confident, Aggressive, Dominant, EmotionallyStable, Intelligent, Mean, Responsible, Sociable, Trustworthy, Unhappy, Competency,Weird, Warmth]
+/ stimulusframes = [1=clearscreen, low, high, low2, high2, low3, high3, low4, high4, low5, high5, low6, high6, low7, 
+                      high7, low8, high8, low9, high9,low10, high10,low11, high11,low12, high12, low14, high14, low15, high15, low16, high16, face, sliderrules]
+/ screencapture = false
+/ fontstyle = ("Arial", 2%, false, true, false, false, 5, 1)
+/ subcaptionfontstyle = ("Arial", 0.5%, false, false, false, false, 5, 1)
+/ itemfontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ responsefontstyle = ("Arial", 1.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/ showpagenumbers = false
+/ showquestionnumbers = false
+/ navigationbuttonfontstyle = ("Arial", 2%, false, false, false, false, 5, 1)
+/ navigationbuttonsize = (10%, 3%)
+/ nextbuttonposition = (85%, 95%)
+</surveypage>
+
+<picture face>
+/items = face
+/size = (24%, 22%)
+/position = (6%, 50%)
+/halign = center
+/select = noreplace
+</picture>
+
+<item face>		
+/1 = "Face10NEW.png"
+/2 = "Face9NEW.png"
+/3 = "Face3NEW.png"
+</item>
+///////////////////////////////////////////////// RATINGS /////////////////////////////////////////////////////////////////////////////////////////////////////////
+<list EmotionValues>
+/ items = (0,1,2,3,4,5,6,7,8,9,10,
+    11,12,13,14,15,16,17,18,19,20,
+    21,22,23,24,25,26,27,28,29,30,
+    31,32,33,34,35,36,37,38,39,40,
+    41,42,43,44,45,46,47,48,49,50,
+    51,52,53,54,55,56,57,58,59,60,
+    61,62,63,64,65,66,67,68,69,70,
+    71,72,73,74,75,76,77,78,79,80,
+    81,82,83,84,85,86,87,88,89,90,
+    91,92,93,94,95,96,97,98,99,100)
+/ selectionmode = random
+/ selectionrate = always
+</list>
+
+
+<text sliderrules>
+/items = ("How would you rate this face according to the following emotion categories?")
+/ fontstyle = ("Arial", 3.5%, false, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 10%)
+</text>
+
+<text low>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (19%, 22%)
+</text>
+
+<text high>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 22%)
+</text>
+
+<text low2>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (19%, 31%)
+</text>
+
+<text high2>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 31%)
+</text>
+
+<text low3>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (19%, 40%)
+</text>
+
+<text high3>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 40%)
+</text>
+
+<text low4>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (19%, 49%)
+</text>
+
+<text high4>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 49%)
+</text>
+
+<text low5>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (19%, 58%)
+</text>
+
+<text high5>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 58%)
+</text>
+
+<text low6>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (19%, 67%)
+</text>
+
+<text high6>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 67%)
+</text>
+
+<text low14>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (19%, 76%)
+</text>
+
+<text high14>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 76%)
+</text>
+
+<text low16>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (19%, 85%)
+</text>
+
+<text high16>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (50%, 85%)
+</text>
+
+///////////////////////////////////////////////////// SLIDER andere Seite //////////////////////////////////////////////////////////////////////////////
+<text low7>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (64%, 22%)
+</text>
+
+<text high7>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (95%, 22%)
+</text>
+
+<text low8>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (64, 31%)
+</text>
+
+<text high8>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (95%, 31%)
+</text>
+
+<text low9>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (64%, 40%)
+</text>
+
+<text high9>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (95%, 40%)
+</text>
+
+<text low10>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (64%, 49%)
+</text>
+
+<text high10>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (95%, 49%)
+</text>
+
+<text low11>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (64%, 58%)
+</text>
+
+<text high11>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (95%, 58%)
+</text>
+
+<text low12>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (64%, 67%)
+</text>
+
+<text high12>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (95%, 67%)
+</text>
+
+<text low13>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (64%, 76%)
+</text>
+
+<text high13>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (95%, 76%)
+</text>
+
+<text low15>
+/items = ("0 = Not at all")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (64%, 76%)
+</text>
+
+<text high15>
+/items = ("100 = Very much")
+/ fontstyle = ("Arial", 1.5%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (95%, 76%)
+</text>
+/////////////////////////////////////////////// SHAPES ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+<shape line1>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 36%)
+</shape>
+
+<shape line2>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 43%)
+</shape>
+
+<shape line3>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 50%)
+</shape>
+
+<shape line4>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 57%)
+</shape>
+
+<shape line5>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 64%)
+</shape>
+
+<shape line6>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 71%)
+</shape>
+
+<shape line7>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 78%)
+</shape>
+
+<shape line8>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 85%)
+</shape>
+
+<shape line9>
+/ shape = rectangle
+/ color = (200,200,200)
+/ size = (200%, 0.1%)
+/ position = (0%, 92%)
+</shape>
+
+<shape vertline1>
+/ shape = rectangle
+/ color = (180,180,180)
+/ size = (0.1%, 56%)
+/ position = (36%, 64%)
+</shape>
+
+//////////////////////////////////////////// RATING ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<text happinessQ>
+/items = ("emotion not at all present (0)", "emotion expressed very intensely (100)?")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+// txbgcolor = (220,220,220)
+/position = (10%, 40%)
+</text>
+
+<text serenityQ>
+/items = ("emotion not at all present (0)", "emotion expressed very intensely (100)?")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (10%, 47%)
+</text>
+
+<text angerQ>
+/items = ("emotion not at all present (0)", "emotion expressed very intensely (100)?")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (10%, 54%)
+</text>
+
+<text sadnessQ>
+/items = ("emotion not at all present (0)", "emotion expressed very intensely (100)?")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (10%, 61%)
+</text>
+
+<text fearQ>
+/items = ("emotion not at all present (0)", "emotion expressed very intensely (100)?")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (10%, 68%)
+</text>
+
+<text surpriseQ>
+/items = ("emotion not at all present (0)", "emotion expressed very intensely (100)?")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (10%, 75%)
+</text>
+
+<text disgustQ>
+/items = ("emotion not at all present (0)", "emotion expressed very intensely (100)?")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (20%, 82%)
+</text>
+
+<text embarrassmentQ>
+/items = ("emotion not at all present (0)", "emotion expressed very intensely (100)?")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (10%, 89%)
+</text>
+
+<checkboxes category>
+/ caption = "How would you classify the food (and one only):"
+/ options = ("Meat/Sea food", "Vegetable/Fruit", "Diary", "Nuts", "Junk food")
+/ optionvalues = ("1", "2", "3", "4", "5")
+/ range = (1,1)
+/ position = (55%, 60%)
+</checkboxes>
+
+<text reminderEM>
+/items = ("You must move each slider, if you want to keep the value, move the slider and return it to its original location.")
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/ txcolor = black
+/position = (30%, 98%)
+</text>
+
+///////////////////////////////////////////////// SLIDERS ///////////////////////////////////////////////////////////////////////////////////////////////////////////7
+
+
+<slider Aggressive>
+/ caption = "Aggressive"
+/required = true
+/defaultresponse = values.Aggressive
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 8%)
+/position = (15%, 18%)
+/slidersize=(40%, 30%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+</slider>
+
+
+<slider Attractive>
+/ caption = "Attractive"
+/required = true
+/defaultresponse = values.Attractive
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 8%)
+/position = (15%, 27%)
+/slidersize=(40%, 30%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+</slider>
+
+
+<slider Caring>
+/ caption = "Caring"
+/required = true
+/defaultresponse = values.Caring
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 8%)
+/position = (15%, 36%)
+/slidersize=(40%, 30%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+</slider>
+
+<slider Confident>
+/ caption = "Confident"
+/required = true
+/defaultresponse = values.Confident
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 8%)
+/position = (15%, 45%)
+/slidersize=(40%, 30%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+</slider>
+
+<slider Dominant>
+/ caption = "Dominant"
+/required = true
+/defaultresponse = values.Dominant
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 8%)
+/position = (15%, 54%)
+/slidersize=(40%, 30%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+</slider>
+
+<slider EmotionallyStable>
+/ caption = "Emotionally Stable"
+/required = true
+/defaultresponse = values.EmotionallyStable
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (15%, 63%)
+/slidersize=(40%, 20%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+</slider>
+
+<slider Competency>
+/ caption = "Competency"
+/required = true
+/defaultresponse = values.Competency
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (15%, 72%)
+/slidersize=(40%, 20%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+</slider>
+
+<slider Warmth>
+/ caption = "Warmth"
+/required = true
+/defaultresponse = values.Warmth
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (15%, 81%)
+/slidersize=(40%, 20%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+</slider>
+
+///////////////////\\\\\\\\\\\\\\\\\//////////////\\\\\\\\\\\\\\\\//////////////\\\\\\\\\\\\\\//////////////\\\\\\\\\\\\\\\///////////\\\\\\\\\\\\\ SLIDER Side 2
+
+<slider Intelligent>
+/ caption = "Intelligent"
+/required = true
+/defaultresponse = values.Intelligent
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (60%, 18%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/slidersize=(40%, 20%)
+</slider>
+
+<slider Mean>
+/ caption = "Mean"
+/required = true
+/defaultresponse = values.Mean
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (60%, 27%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/slidersize=(40%, 20%)
+</slider>
+
+<slider Responsible>
+/ caption = "Responsible"
+/required = true
+/defaultresponse = values.Responsible
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (60%, 36%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/slidersize=(40%, 20%)
+</slider>
+
+<slider Sociable>
+/ caption = "Sociable"
+/required = true
+/defaultresponse = values.Sociable
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (60%, 45%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/slidersize=(40%, 20%)
+</slider>
+
+<slider Trustworthy>
+/caption = "Trustworthy"
+/required = true
+/defaultresponse = values.Trustworthy
+/range = (0, 100)
+/increment = 1
+/required = true
+/size = (80%, 10%)
+/position = (60%, 54%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/showticks = false
+/slidersize=(40%, 20%)
+</slider>
+
+<slider Unhappy>
+/ caption = "Unhappy"
+/required = true
+/defaultresponse = values.Unhappy
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (60%, 63%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/slidersize=(40%, 20%)
+</slider>
+
+<slider Weird>
+/ caption = "Weird"
+/required = true
+/defaultresponse = values.Weird
+//labels=("0","25","50","75","100")
+/range = (0, 100)
+/increment = 1
+/showticks = false
+/size = (80%, 10%)
+/position = (60%, 72%)
+/ fontstyle = ("Arial", 2%, true, false, false, false, 5, 1)
+/slidersize=(40%, 20%)
+</slider>
+
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+   TRIALS Slider
+*******************************************************************************************************************
+*******************************************************************************************************************
+			
+<block instructionEM>
+/ postinstructions = (instructionEM)
+</block>
+
+<block ratings>
+/ trials = [1-3 = EmotionRatingTrial]
+</block>
+
+<block thankEM>
+/ postinstructions = (thankEM)
+</block>
+
+<page thankEM>
+<center><h1>Thank you!</h1><hr>
+You reached the end of the experiment.<br>
+</center><br><br>
+</page>
+
+
+<page instructionEM>
+<h1></h1><hr>
+Now you will be presented with the face avatars form 3 different online players. Then you will be asked
+to <br>
+<br>1) rate the facial expression on 15 different dimensions
+<br><br><br>To continue with the task, press the continue button.
+</page>
+
+
+<trial EmotionRatingTrial>
+/ ontrialbegin = [values.timing = floor(rand(300, 1500))]
+/ stimulusframes = [1 = clearscreen, cross]
+/ timeout =  values.timing
+/ branch = [
+	surveypage.EmotionRating
+]
+/ ontrialend = [
+	values.facepic = list.EmotionValues.nextindex
+]
+/ recorddata = true
+/ screencapture = true
+</trial>
+
+<text cross>
+/items = ("+")
+/color = (0,0,0)
+/ fontstyle = ("Arial", 10%, true, false, false, false, 5, 1)
+</text>
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	END 
+*******************************************************************************************************************
+*******************************************************************************************************************
